@@ -9,7 +9,7 @@ function StartGameScreen() {
 				maxLength={2}
 				keyboardType="number-pad"
 			/>
-			<PrimaryButton>Rest</PrimaryButton>
+			<PrimaryButton>Reset</PrimaryButton>
 			<PrimaryButton>Confirm</PrimaryButton>
 		</View>
 	);
@@ -19,7 +19,7 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
 	inputContainer: {
 		padding: 16,
-		backgroundColor: "#72063c",
+		backgroundColor: "#09296e",
 		marginHorizontal: 20,
 		marginTop: 80,
 		borderRadius: 25,
