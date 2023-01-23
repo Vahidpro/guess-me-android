@@ -10,7 +10,8 @@ export default Title;
 const styles = StyleSheet.create({
 	title: {
 		fontSize: 32,
-		fontWeight: "bold",
+		fontFamily: "open-sans-bold",
+		// fontWeight: "bold",
 		color: Colors.oponentGuessTitle,
 		textAlign: "center",
 		borderWidth: 1,

@@ -8,6 +8,7 @@ export default InstructionText;
 
 const styles = StyleSheet.create({
 	inputGuide: {
+		fontFamily: "open-sans",
 		color: Colors.accent100,
 		fontSize: 25,
 		textAlign: "center",
