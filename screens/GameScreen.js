@@ -1,8 +1,11 @@
 import { Alert, StyleSheet, Text, View } from "react-native";
-import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useEffect, useState } from "react";
+import Colors from "../constants/colors";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
+import Title from "../components/ui/Title";
 
 function generateRandomBetween(min, max, exclude) {
 	const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -53,10 +56,10 @@ function GameScreen({ userNumber, onGameOver }) {
 	}
 	return (
 		<View style={styles.screen}>
-			<Title style={styles.title}>Oponent's Guess</Title>
+			<Title>Oponent's Guess</Title>
 			<NumberContainer>{currentGuess}</NumberContainer>
-			<View>
-				<Text>Higher or lower?</Text>
+			<Card>
+				<Text style={styles.inputAsk}>Higher or lower?</Text>
 				<View>
 					<PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
 						+
@@ -65,7 +68,7 @@ function GameScreen({ userNumber, onGameOver }) {
 						-
 					</PrimaryButton>
 				</View>
-			</View>
+			</Card>
 			<View></View>
 		</View>
 	);
@@ -78,5 +81,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: 40,
 	},
-	title: {},
+	inputAsk: {
+		color: Colors.question,
+		fontSize: 25,
+		textAlign: "center",
+		marginBottom: 20,
+	},
 });
