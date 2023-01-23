@@ -16,5 +16,6 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: Colors.oponentGuessTitle,
 		padding: 16,
+		borderRadius: 15,
 	},
 });
