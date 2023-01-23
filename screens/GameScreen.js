@@ -58,11 +58,11 @@ function GameScreen({ userNumber, onGameOver }) {
 			<View>
 				<Text>Higher or lower?</Text>
 				<View>
-					<PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-						-
-					</PrimaryButton>
 					<PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
 						+
+					</PrimaryButton>
+					<PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+						-
 					</PrimaryButton>
 				</View>
 			</View>
