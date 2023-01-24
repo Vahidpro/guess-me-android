@@ -1,13 +1,35 @@
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import {
+	Dimensions,
+	Image,
+	StyleSheet,
+	Text,
+	View,
+	useWindowDimensions,
+} from "react-native";
 import Title from "../components/ui/Title";
 import Colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
 function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
+	const { width, height } = useWindowDimensions();
+
+	let imageSize = 300;
+
+	if (width < 380) {
+		imageSize = 150;
+	}
+	if (height < 450) {
+		imageSize = 80;
+	}
+	const imageStyle = {
+		width: imageSize,
+		height: imageSize,
+		borderRadius: imageSize / 2,
+	};
 	return (
 		<View style={styles.rootContainer}>
 			<Title>Game is over</Title>
-			<View style={styles.imageContainer}>
+			<View style={[styles.imageContainer, imageStyle]}>
 				<Image
 					style={styles.image}
 					source={require("../assets/images/success.png")}
@@ -34,9 +56,9 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	imageContainer: {
-		width: deviceWidth < 380 ? 150 : 300,
-		height: deviceWidth < 380 ? 150 : 300,
-		borderRadius: 150,
+		// width: deviceWidth < 380 ? 150 : 300,
+		// height: deviceWidth < 380 ? 150 : 300,
+		// borderRadius: 150,
 		borderWidth: 3,
 		borderColor: Colors.accent800,
 		overflow: "hidden",
