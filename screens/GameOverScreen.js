@@ -1,6 +1,7 @@
 import {
 	Dimensions,
 	Image,
+	ScrollView,
 	StyleSheet,
 	Text,
 	View,
@@ -27,21 +28,23 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
 		borderRadius: imageSize / 2,
 	};
 	return (
-		<View style={styles.rootContainer}>
-			<Title>Game is over</Title>
-			<View style={[styles.imageContainer, imageStyle]}>
-				<Image
-					style={styles.image}
-					source={require("../assets/images/success.png")}
-				></Image>
+		<ScrollView style={styles.screen}>
+			<View style={styles.rootContainer}>
+				<Title>Game is over</Title>
+				<View style={[styles.imageContainer, imageStyle]}>
+					<Image
+						style={styles.image}
+						source={require("../assets/images/success.png")}
+					></Image>
+				</View>
+				<Text style={styles.summaryText}>
+					Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
+					rounds to guess the number{" "}
+					<Text style={styles.highlight}>{userNumber}</Text>.
+				</Text>
+				<PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
 			</View>
-			<Text style={styles.summaryText}>
-				Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
-				rounds to guess the number{" "}
-				<Text style={styles.highlight}>{userNumber}</Text>.
-			</Text>
-			<PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
-		</View>
+		</ScrollView>
 	);
 }
 
@@ -49,6 +52,7 @@ export default GameOverScreen;
 const deviceWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
+	screen: { flex: 1 },
 	rootContainer: {
 		flex: 1,
 		padding: 24,
