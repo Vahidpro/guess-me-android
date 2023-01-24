@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 32,
 		fontFamily: "open-sans-bold",
-		// fontWeight: "bold",
 		color: Colors.oponentGuessTitle,
 		textAlign: "center",
 		borderWidth: 1,
 		borderColor: Colors.oponentGuessTitle,
 		padding: 16,
 		borderRadius: 15,
+		maxWidth: "80%",
 	},
 });

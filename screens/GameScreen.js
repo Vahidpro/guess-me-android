@@ -54,7 +54,6 @@ function GameScreen({ userNumber, onGameOver }) {
 		} else {
 			minBoundary = currentGuess + 1;
 		}
-		console.log(minBoundary, maxBoundary);
 		const newRndNumber = generateRandomBetween(
 			minBoundary,
 			maxBoundary,
@@ -112,6 +111,7 @@ const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
 		padding: 40,
+		alignItems: "center",
 	},
 	inputAsk: {
 		color: Colors.question,
