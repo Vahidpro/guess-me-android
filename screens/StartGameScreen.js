@@ -1,5 +1,7 @@
 import {
 	Alert,
+	KeyboardAvoidingView,
+	ScrollView,
 	StyleSheet,
 	TextInput,
 	View,
@@ -39,33 +41,40 @@ function StartGameScreen({ onPickNumber }) {
 	const marginTop = height < 380 ? 30 : 100;
 
 	return (
-		<View style={[styles.rootContainer, { marginTop: marginTop }]}>
-			<Title>Guess My Number</Title>
-			<Card style={styles.inputContainer}>
-				<InstructionText>Input a number</InstructionText>
-				<TextInput
-					onChangeText={numberInputHandler}
-					style={styles.numberInput}
-					maxLength={2}
-					keyboardType="number-pad"
-					autoCorrect={false}
-					value={enteredNumber}
-				/>
-				<View style={styles.buttonsContainer}>
-					<View style={styles.buttonContainer}>
-						<PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-					</View>
-					<View style={styles.buttonContainer}>
-						<PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-					</View>
+		<ScrollView style={styles.screen}>
+			<KeyboardAvoidingView style={styles.screen} behavior="position">
+				<View style={[styles.rootContainer, { marginTop: marginTop }]}>
+					<Title>Guess My Number</Title>
+					<Card style={styles.inputContainer}>
+						<InstructionText>Input a number</InstructionText>
+						<TextInput
+							onChangeText={numberInputHandler}
+							style={styles.numberInput}
+							maxLength={2}
+							keyboardType="number-pad"
+							autoCorrect={false}
+							value={enteredNumber}
+						/>
+						<View style={styles.buttonsContainer}>
+							<View style={styles.buttonContainer}>
+								<PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+							</View>
+							<View style={styles.buttonContainer}>
+								<PrimaryButton onPress={confirmInputHandler}>
+									Confirm
+								</PrimaryButton>
+							</View>
+						</View>
+					</Card>
 				</View>
-			</Card>
-		</View>
+			</KeyboardAvoidingView>
+		</ScrollView>
 	);
 }
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
+	screen: { flex: 1 },
 	rootContainer: {
 		flex: 1,
 		// marginTop: 100,
